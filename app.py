@@ -185,7 +185,7 @@ This website works like a Google Form where native speakers review comments one 
             
             with col2:
                 is_mixed = st.checkbox(
-                    "Contains Mixed/Banglish words?",
+                    "Contains Mixed/Banglish words/others?",
                     key=f"check_{idx}"
                 )
                 mixed_val = "mixed word" if is_mixed else ""
