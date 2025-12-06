@@ -8,7 +8,7 @@ import time
 SHEET_ID = "1exBP62qJfJTSxMT9m0khF439IFmzxIL1klflRaH8hyQ"
 BATCH_SIZE = 50
 TOTAL_COMMENTS = 10000  # Adjust if actual data is different
-ADMIN_PASSWORD = "Jamwa_tribal_adam_1984@"  # Change this password
+ADMIN_PASSWORD = st.secrets["ADMIN_PASSWORD"]
 
 # Page Config
 st.set_page_config(page_title="Chakma Hate Speech Survey", layout="wide")
