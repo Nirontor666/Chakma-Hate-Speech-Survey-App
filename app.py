@@ -7,8 +7,12 @@ import time
 # --- CONFIGURATION ---
 SHEET_ID = "1exBP62qJfJTSxMT9m0khF439IFmzxIL1klflRaH8hyQ"
 BATCH_SIZE = 50
-TOTAL_COMMENTS = 10000  # Adjust if actual data is different
-ADMIN_PASSWORD = st.secrets["ADMIN_PASSWORD"]
+TOTAL_COMMENTS = 10000
+# Make sure "ADMIN_PASSWORD" is set in your .streamlit/secrets.toml file
+ADMIN_PASSWORD = st.secrets["ADMIN_PASSWORD"] 
+
+# 🔴 PASTE YOUR YOUTUBE VIDEO LINK HERE 🔴
+INSTRUCTION_VIDEO_URL = "https://youtu.be/amVz26U0wkM?si=_FjPoOFBo90vyJJK" 
 
 # Page Config
 st.set_page_config(page_title="Chakma Hate Speech Survey", layout="wide")
@@ -105,23 +109,16 @@ def save_batch_data(worksheet, batch_idx, slot_num, username, answers):
 # --- USER INTERFACE ---
 def user_interface():
     st.header("📝 Chakma Hate Speech Survey")
-    st.markdown("""
-### 📋 Instructions / নির্দেশাবলী
-
-**English:**
-This website works like a Google Form where native speakers review comments one by one.
-* **Mandatory:** You must select whether the comment is **Hate Speech** or **Non-Hate Speech**. You cannot submit without selecting one of these options.
-* **Optional:** There are additional checkboxes if the comment contains **Mixed words (Banglish)** or **Does not carry any Chakma words**. These are optional and can be left unselected if they don't apply.
-
----
-
-**বাংলা:**
-এই ওয়েবসাইটটি গুগল ফর্মের মতো কাজ করে যেখানে স্থানীয় ভাষাভাষীরা প্রতিটি মন্তব্য একে একে যাচাই করবেন।
-* **বাধ্যতামূলক:** মন্তব্যটি **বিদ্বেষমূলক (Hate Speech)** নাকি **বিদ্বেষমূলক নয় (Non-Hate Speech)** তা আপনাকে অবশ্যই নির্বাচন করতে হবে। এটি নির্বাচন করা ছাড়া আপনি জমা (Submit) দিতে পারবেন না।
-* **ঐচ্ছিক:** যদি মন্তব্যে **মিশ্র শব্দ (বাংলিশ)** থাকে বা **কোনো চাকমা শব্দ না থাকে**, তবে তার জন্য আলাদা অপশন রয়েছে। এটি প্রযোজ্য না হলে আপনি খালি রাখতে পারেন।
-""")
     
-    
+    # --- CHANGED SECTION: VIDEO INSTEAD OF MARKDOWN ---
+    st.subheader("📋 Instructions / নির্দেশাবলী")
+
+    # Change muted=False to muted=True
+    st.video(INSTRUCTION_VIDEO_URL, autoplay=True, muted=False)
+    st.caption("🔊 Tap the video volume icon to unmute.")
+
+    # -------------------------------------------------
+
     if 'username' not in st.session_state:
         st.info("Please enter your name to start.")
         
