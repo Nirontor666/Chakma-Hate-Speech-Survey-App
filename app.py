@@ -12,7 +12,7 @@ TOTAL_COMMENTS = 10000
 ADMIN_PASSWORD = st.secrets["ADMIN_PASSWORD"] 
 
 # 🔴 PASTE YOUR YOUTUBE VIDEO LINK HERE 🔴
-INSTRUCTION_VIDEO_URL = "https://youtu.be/amVz26U0wkM?si=_FjPoOFBo90vyJJK" 
+INSTRUCTION_VIDEO_URL = "https://youtu.be/h0KDLY2Defc" 
 
 # Page Config
 st.set_page_config(page_title="Chakma Hate Speech Survey", layout="wide")
